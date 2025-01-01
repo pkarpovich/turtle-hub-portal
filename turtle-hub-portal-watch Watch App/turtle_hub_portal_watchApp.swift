@@ -1,6 +1,6 @@
 //
-//  turtle_hub_portalApp.swift
-//  turtle-hub-portal
+//  turtle_hub_portal_watchApp.swift
+//  turtle-hub-portal-watch Watch App
 //
 //  Created by Pavel Karpovich on 01/01/2025.
 //
@@ -8,13 +8,13 @@
 import SwiftUI
 
 @main
-struct turtle_hub_portalApp: App {
+struct turtle_hub_portal_watch_Watch_AppApp: App {
     @StateObject private var chatViewModel = ChatViewModel()
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ChatView(viewModel: chatViewModel)
+                WatchChatView(viewModel: chatViewModel)
             }
         }
     }
