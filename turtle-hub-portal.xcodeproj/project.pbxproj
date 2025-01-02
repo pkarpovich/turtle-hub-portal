@@ -415,6 +415,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "turtle-hub-portal-watch";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Voice message recording";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "space.pkarpovich.turtle-hub-portal";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -445,6 +446,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "turtle-hub-portal-watch";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Voice message recording";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "space.pkarpovich.turtle-hub-portal";
 				LD_RUNPATH_SEARCH_PATHS = (
