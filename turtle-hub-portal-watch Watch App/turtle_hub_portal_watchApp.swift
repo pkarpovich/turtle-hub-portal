@@ -13,9 +13,7 @@ struct turtle_hub_portal_watch_Watch_AppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                WatchVoiceView()
-            }
+            WatchVoiceView()
         }
     }
 }

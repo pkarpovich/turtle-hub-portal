@@ -13,9 +13,8 @@ class WatchVoiceViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var responseText: String = ""
     
-    private let audioRecorder = AudioRecorder() // класс, аналогичный iOS
-    
-    private let endpoint = "http://192.168.198.118:8080/api/message/voice"
+    private let audioRecorder = AudioRecorder()
+    private let endpoint = (ProcessInfo.processInfo.environment["SERVER_URL"] ?? "http://localhost:8080") + "/api/message/voice"
     
     func toggleRecording() {
         if isRecording {
@@ -31,7 +30,7 @@ class WatchVoiceViewModel: ObservableObject {
             isRecording = true
             responseText = ""
         } catch {
-            print("Ошибка при старте записи: \(error)")
+            print("Error starting recording: \(error)")
         }
     }
     
@@ -44,7 +43,7 @@ class WatchVoiceViewModel: ObservableObject {
             isRecording = false
             sendAudioData(data)
         } catch {
-            print("Ошибка при остановке записи: \(error)")
+            print("Error stopping recording: \(error)")
             isRecording = false
         }
     }
@@ -69,11 +68,11 @@ class WatchVoiceViewModel: ObservableObject {
             }
             
             if let error = error {
-                print("Ошибка при отправке: \(error)")
+                print("Error sending data: \(error)")
                 return
             }
             guard let responseData = responseData else {
-                print("Нет данных в ответе")
+                print("No data in response")
                 return
             }
             do {
@@ -83,9 +82,9 @@ class WatchVoiceViewModel: ObservableObject {
                     self?.responseText = serverResponse.response
                 }
             } catch {
-                print("Ошибка при декодировании JSON: \(error.localizedDescription)")
-                let decodedJSON = String(data: responseData, encoding: .utf8) ?? "Неизвестный ответ"
-                print("Ответ сервера: \(decodedJSON)")
+                print("Error decoding JSON: \(error.localizedDescription)")
+                let decodedJSON = String(data: responseData, encoding: .utf8) ?? "Unknown response"
+                print("Server response: \(decodedJSON)")
             }
         }.resume()
     }
