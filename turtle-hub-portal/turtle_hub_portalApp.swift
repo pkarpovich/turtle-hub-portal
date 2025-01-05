@@ -2,7 +2,7 @@
 //  turtle_hub_portalApp.swift
 //  turtle-hub-portal
 //
-//  Created by Pavel Karpovich on 01/01/2025.
+//  Created by Pavel Karpovich on 05/01/2025.
 //
 
 import SwiftUI
@@ -13,9 +13,7 @@ struct turtle_hub_portalApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                ChatView(viewModel: chatViewModel)
-            }
+            ChatView(viewModel: chatViewModel)
         }
     }
 }

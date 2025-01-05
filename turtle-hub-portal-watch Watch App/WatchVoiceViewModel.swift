@@ -34,6 +34,19 @@ class WatchVoiceViewModel: ObservableObject {
         }
     }
     
+    func stopRecording() {
+        do {
+            guard let data = try audioRecorder.stopRecording() else {
+                isRecording = false
+                return
+            }
+            isRecording = false
+        } catch {
+            print("Error stopping recording: \(error)")
+            isRecording = false
+        }
+    }
+    
     private func stopRecordingAndSend() {
         do {
             guard let data = try audioRecorder.stopRecording() else {

@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-extension String {
-    var forceCharWrapping: Self {
-        self.map({ String($0) }).joined(separator: "\u{200B}")
-    }
-}
-
 struct MessageBubbleView: View {
     let messageText: String
     
@@ -22,17 +16,17 @@ struct MessageBubbleView: View {
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(
                         LinearGradient(
-                            gradient: Gradient(colors: [
-                                Color.red.opacity(0.8),
-                                Color.purple.opacity(0.6)
-                            ]),
+                            colors: [
+                                Color(red: 0.2, green: 0.6, blue: 0.2),
+                                Color(red: 0.1, green: 0.3, blue: 0.3)
+                            ],
                             startPoint: .topLeading,
-                            endPoint: .bottomLeading
+                            endPoint: .bottomTrailing
                         )
                     )
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
-                Text(messageText.forceCharWrapping)
+                Text(messageText)
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.white)
                     .padding(.vertical, 4)
@@ -51,12 +45,15 @@ struct WatchVoiceView: View {
         NavigationView {
             if viewModel.isLoading {
                 VStack {
-                    ProgressView("Sending message...")
-                        .progressViewStyle(CircularProgressViewStyle(tint: .green))
-                        .padding()
+                    ProgressView(){
+                        Text("Fire Away!")
+                            .font(.headline)
+                            .foregroundColor(.accent)
+                    }
+                    .progressViewStyle(CircularProgressViewStyle(tint: .accent))
+                    .controlSize(.large)
+                    .padding()
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.black.edgesIgnoringSafeArea(.all))
             }
             else if !viewModel.responseText.isEmpty {
                 ScrollView {
@@ -88,25 +85,40 @@ struct WatchVoiceView: View {
                 VStack {
                     Spacer()
                     
+                    if viewModel.isRecording {
+                        Text("You're On Air!")
+                            .font(.headline)
+                            .foregroundColor(.accent)
+                    }
+                    
+                    if viewModel.isRecording {
+                        Button(action: {
+                            viewModel.stopRecording()
+                        }) {
+                            Text("Cancel")
+                        }
+                        .padding(.top, 20)
+                    }
+                    
                     Button(action: {
                         viewModel.toggleRecording()
                     }) {
                         Image(systemName: viewModel.isRecording ? "mic.fill" : "mic")
                             .font(.largeTitle)
-                            .foregroundColor(viewModel.isRecording ? Color.red : Color.blue)
+                            .foregroundColor(viewModel.isRecording ? Color.red : Color.accentColor)
                             .scaleEffect(viewModel.isRecording ? 1.0 : 0.8)
                             .animation(viewModel.isRecording ? .easeInOut(duration: 0.6).repeatForever(autoreverses: true) : .default, value: viewModel.isRecording)
                     }
-                    .padding(.bottom, 20)
-                    
-                    if viewModel.isRecording {
-                        Text("Recording...")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                            .padding(.top, 8)
-                    }
                 }
             }
+        }
+        .onAppear {
+            NotificationCenter.default.addObserver(forName: NSNotification.Name("StartListening"), object: nil, queue: .main) { _ in
+                viewModel.toggleRecording()
+            }
+        }
+        .onDisappear {
+            NotificationCenter.default.removeObserver(self, name: NSNotification.Name("StartListening"), object: nil)
         }
     }
 }

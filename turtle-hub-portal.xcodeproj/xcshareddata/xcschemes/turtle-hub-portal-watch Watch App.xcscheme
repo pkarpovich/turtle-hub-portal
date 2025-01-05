@@ -29,7 +29,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52EF25152D25C868001EF709"
+               BlueprintIdentifier = "52EF25F12D2B0CCB001EF709"
                BuildableName = "turtle-hub-portal.app"
                BlueprintName = "turtle-hub-portal"
                ReferencedContainer = "container:turtle-hub-portal.xcodeproj">

@@ -14,40 +14,10 @@
             filePath = "turtle-hub-portal-watch Watch App/WatchVoiceViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "sendAudioData(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "ED5CA344-3882-4F2B-9423-A37359DC0F00 - 67825e8eb7665080"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in turtle_hub_portal_watch_Watch_App.WatchVoiceViewModel.sendAudioData(Foundation.Data) -&gt; ()"
-                  moduleName = "turtle-hub-portal-watch Watch App.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pavel.karpovich/Projects/turtle-hub-portal/turtle-hub-portal-watch%20Watch%20App/WatchVoiceViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66">
-               </Location>
-               <Location
-                  uuid = "ED5CA344-3882-4F2B-9423-A37359DC0F00 - 8efded114c247891"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in turtle_hub_portal_watch_Watch_App.WatchVoiceViewModel.sendAudioData(Foundation.Data) -&gt; ()"
-                  moduleName = "turtle-hub-portal-watch Watch App.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pavel.karpovich/Projects/turtle-hub-portal/turtle-hub-portal-watch%20Watch%20App/WatchVoiceViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -60,8 +30,8 @@
             filePath = "turtle-hub-portal-watch Watch App/WatchVoiceViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "sendAudioData(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -76,8 +46,8 @@
             filePath = "turtle-hub-portal-watch Watch App/WatchVoiceViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "sendAudioData(_:)"
             landmarkType = "7">
          </BreakpointContent>
