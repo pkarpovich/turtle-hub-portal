@@ -51,19 +51,6 @@ struct ChatView: View {
                         }
                     }
                 }
-                
-                HStack {
-                    TextField("Write a message...", text: $viewModel.currentText)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
-                    Button(action: {
-                        viewModel.sendMessage()
-                    }) {
-                        Text("Send")
-                    }
-                    .disabled(viewModel.currentText.isEmpty)
-                }
-                .padding()
             }
             .navigationTitle("Turtle Hub")
         }
