@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		52EF26352D2BD618001EF709 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 52EF26342D2BD618001EF709 /* MarkdownUI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		52EF25E72D2A8C99001EF709 /* Embed ExtensionKit Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52EF26352D2BD618001EF709 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +106,7 @@
 			);
 			name = "turtle-hub-portal-watch Watch App";
 			packageProductDependencies = (
+				52EF26342D2BD618001EF709 /* MarkdownUI */,
 			);
 			productName = "turtle-hub-portal-watch Watch App";
 			productReference = 52EF252C2D25C944001EF709 /* turtle-hub-portal-watch Watch App.app */;
@@ -156,6 +162,9 @@
 			);
 			mainGroup = 52EF250D2D25C868001EF709;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				52EF26332D2BD618001EF709 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 52EF25172D25C868001EF709 /* Products */;
 			projectDirPath = "";
@@ -332,6 +341,7 @@
 				DEVELOPMENT_TEAM = GGG699AY79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "turtle-hub-portal-watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "turtle-hub-portal-watch";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Voice message recording";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -363,6 +373,7 @@
 				DEVELOPMENT_TEAM = GGG699AY79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "turtle-hub-portal-watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "turtle-hub-portal-watch";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Voice message recording";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -472,6 +483,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		52EF26332D2BD618001EF709 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52EF26342D2BD618001EF709 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52EF26332D2BD618001EF709 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 52EF250E2D25C868001EF709 /* Project object */;
 }

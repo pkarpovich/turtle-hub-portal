@@ -9,8 +9,6 @@ import SwiftUI
 
 @main
 struct turtle_hub_portal_watch_Watch_AppApp: App {
-    @StateObject private var chatViewModel = ChatViewModel()
-    
     var body: some Scene {
         WindowGroup {
             WatchVoiceView()

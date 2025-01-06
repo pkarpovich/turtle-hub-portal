@@ -12,9 +12,10 @@ class WatchVoiceViewModel: ObservableObject {
     @Published var isRecording: Bool = false
     @Published var isLoading: Bool = false
     @Published var responseText: String = ""
+    @Published var errorMessage: String? = nil
     
     private let audioRecorder = AudioRecorder()
-    private let endpoint = (ProcessInfo.processInfo.environment["SERVER_URL"] ?? "http://localhost:8080") + "/api/message/voice"
+    private let endpoint = (ProcessInfo.processInfo.environment["SERVER_URL"] ?? "http://192.168.198.3/gateway") + "/api/message/voice"
     
     func toggleRecording() {
         if isRecording {
@@ -29,8 +30,10 @@ class WatchVoiceViewModel: ObservableObject {
             try audioRecorder.startRecording()
             isRecording = true
             responseText = ""
+            errorMessage = nil
         } catch {
-            print("Error starting recording: \(error)")
+            errorMessage = "Failed to start recording: \(error.localizedDescription)"
+            print(errorMessage ?? "Unknown error")
         }
     }
     
@@ -42,7 +45,8 @@ class WatchVoiceViewModel: ObservableObject {
             }
             isRecording = false
         } catch {
-            print("Error stopping recording: \(error)")
+            errorMessage = "Failed to stop recording: \(error.localizedDescription)"
+            print(errorMessage ?? "Unknown error")
             isRecording = false
         }
     }
@@ -56,16 +60,19 @@ class WatchVoiceViewModel: ObservableObject {
             isRecording = false
             sendAudioData(data)
         } catch {
-            print("Error stopping recording: \(error)")
+            errorMessage = "Failed to stop recording: \(error.localizedDescription)"
+            print(errorMessage ?? "Unknown error")
             isRecording = false
         }
     }
     
     private func sendAudioData(_ data: Data) {
         isLoading = true
+        errorMessage = nil
         
         guard let url = URL(string: endpoint) else {
-            print("Invalid URL")
+            errorMessage = "Invalid URL"
+            print(errorMessage ?? "Unknown error")
             self.isLoading = false
             return
         }
@@ -81,10 +88,23 @@ class WatchVoiceViewModel: ObservableObject {
             }
             
             if let error = error {
-                print("Error sending data: \(error)")
+                if let urlError = error as? URLError {
+                    DispatchQueue.main.async {
+                        self?.errorMessage = "Network error: \(urlError.localizedDescription). Code: \(urlError.errorCode). URL: \(url)"
+                    }
+                    print("Network error: \(urlError.localizedDescription). Code: \(urlError.errorCode)")
+                } else {
+                    DispatchQueue.main.async {
+                        self?.errorMessage = "Unknown error: \(error.localizedDescription)"
+                    }
+                    print("Unknown error: \(error.localizedDescription)")
+                }
                 return
             }
             guard let responseData = responseData else {
+                DispatchQueue.main.async {
+                    self?.errorMessage = "No data received from server"
+                }
                 print("No data in response")
                 return
             }
@@ -93,12 +113,20 @@ class WatchVoiceViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self?.responseText = serverResponse.response
+                    self?.playDefaultBeepSound()
                 }
             } catch {
-                print("Error decoding JSON: \(error.localizedDescription)")
                 let decodedJSON = String(data: responseData, encoding: .utf8) ?? "Unknown response"
+                DispatchQueue.main.async {
+                    self?.errorMessage = "Failed to decode response: \(error.localizedDescription). Server response: \(decodedJSON)"
+                }
+                print("Error decoding JSON: \(error.localizedDescription)")
                 print("Server response: \(decodedJSON)")
             }
         }.resume()
+    }
+    
+    private func playDefaultBeepSound() {
+        WKInterfaceDevice.current().play(.success)
     }
 }

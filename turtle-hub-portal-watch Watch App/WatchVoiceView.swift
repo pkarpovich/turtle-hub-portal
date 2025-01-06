@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MarkdownUI
 
 struct MessageBubbleView: View {
     let messageText: String
@@ -26,11 +27,10 @@ struct MessageBubbleView: View {
                     )
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
-                Text(messageText)
-                    .multilineTextAlignment(.leading)
+                Markdown(messageText)
                     .foregroundColor(.white)
-                    .padding(.vertical, 4)
-                    .padding(.horizontal, 4)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 8)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -54,6 +54,19 @@ struct WatchVoiceView: View {
                     .controlSize(.large)
                     .padding()
                 }
+            } else if let errorMessage = viewModel.errorMessage {
+                VStack {
+                    ScrollView {
+                        Text(errorMessage)
+                            .font(.body)
+                            .foregroundColor(.red)
+                            .padding()
+                    }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                    Button("Retry") {
+                        viewModel.errorMessage = nil
+                    }
+                }
+                .padding()
             }
             else if !viewModel.responseText.isEmpty {
                 ScrollView {
@@ -74,7 +87,7 @@ struct WatchVoiceView: View {
                     Button(action: {
                         viewModel.responseText = ""
                     }) {
-                        Text("Close")
+                        Text("Dismiss")
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
