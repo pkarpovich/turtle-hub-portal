@@ -10,7 +10,7 @@ import Combine
 
 class ChatViewModel: ObservableObject {
     @Published var isLoading: Bool = false
-    @Published var messages: [Message] = []
+    @Published var messages: [ChatMessage] = []
     @Published var errorMessage: String? = nil
     
     private let chatService = ChatService()

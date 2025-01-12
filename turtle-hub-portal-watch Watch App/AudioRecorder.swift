@@ -10,16 +10,15 @@ import AVFoundation
 
 class AudioRecorder: NSObject, ObservableObject {
     private var audioRecorder: AVAudioRecorder?
-    private var audioSession: AVAudioSession = AVAudioSession.sharedInstance()
+    private let audioSession = AVAudioSession.sharedInstance()
     
-    private var recordingURL: URL = {
+    private let recordingURL: URL = {
         let tempDir = FileManager.default.temporaryDirectory
         return tempDir.appendingPathComponent("temp_recording.m4a")
     }()
     
     func startRecording() throws {
-        try audioSession.setCategory(.playAndRecord, mode: .default, options: [.allowBluetooth])
-        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+        try configureAudioSession()
         
         let settings: [String: Any] = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -34,12 +33,32 @@ class AudioRecorder: NSObject, ObservableObject {
     }
     
     func stopRecording() throws -> Data? {
-        audioRecorder?.stop()
-        audioRecorder = nil
+        guard let audioRecorder = audioRecorder else {
+            throw AudioRecorderError.recordingNotStarted
+        }
+        
+        audioRecorder.stop()
+        self.audioRecorder = nil
         
         let recordedData = try Data(contentsOf: recordingURL)
-        try FileManager.default.removeItem(at: recordingURL)
+        try? FileManager.default.removeItem(at: recordingURL)
         
         return recordedData
+    }
+    
+    private func configureAudioSession() throws {
+        try audioSession.setCategory(.playAndRecord, mode: .default, options: [.allowBluetooth])
+        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+    }
+    
+    enum AudioRecorderError: LocalizedError {
+        case recordingNotStarted
+        
+        var errorDescription: String? {
+            switch self {
+            case .recordingNotStarted:
+                return "Recording has not been started."
+            }
+        }
     }
 }

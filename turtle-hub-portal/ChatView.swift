@@ -9,50 +9,71 @@ import SwiftUI
 
 struct ChatView: View {
     @ObservedObject var viewModel: ChatViewModel
-    
     @State private var scrollProxy: ScrollViewProxy? = nil
     
     var body: some View {
-        ScrollViewReader { proxy in
+        ZStack {
             VStack {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 8) {
-                        ForEach(viewModel.messages) { message in
-                            HStack {
-                                if message.isUserMessage {
-                                    Spacer()
-                                    Text(message.text)
-                                        .padding()
-                                        .foregroundColor(.white)
-                                        .background(Color.blue)
-                                        .cornerRadius(8)
-                                        .id(message.id)
-                                } else {
-                                    Text(message.text)
-                                        .padding()
-                                        .foregroundColor(.black)
-                                        .background(Color.gray.opacity(0.2))
-                                        .cornerRadius(8)
-                                        .id(message.id)
-                                    Spacer()
-                                }
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 16) {
+                            ForEach(viewModel.messages) { message in
+                                messageRow(for: message)
                             }
                         }
-                    }
-                }
-                .padding(16)
-                .onAppear {
-                    self.scrollProxy = proxy
-                }
-                .onChange(of: viewModel.messages.count) { _ in
-                    if let lastMessage = viewModel.messages.last {
-                        withAnimation {
-                            proxy.scrollTo(lastMessage.id, anchor: .bottom)
+                        .padding(16)
+                        .onAppear {
+                            self.scrollProxy = proxy
+                        }
+                        .onChange(of: viewModel.messages.count) {
+                            scrollToLastMessage(using: proxy)
                         }
                     }
                 }
             }
-            .navigationTitle("Turtle Hub")
+            
+            if viewModel.isLoading {
+                loaderView
+            }
+        }
+        .background(Color(UIColor.black))
+        .navigationTitle("Turtle Hub")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private func messageRow(for message: ChatMessage) -> some View {
+        HStack {
+            if message.isUserMessage {
+                Spacer()
+                MessageBubbleView(
+                    messageText: message.text,
+                    isBotMessage: false
+                )
+            } else {
+                MessageBubbleView(
+                    messageText: message.text,
+                    isBotMessage: true
+                )
+                Spacer()
+            }
+        }
+    }
+    
+    private var loaderView: some View {
+        Group {
+            Color.black
+                .ignoresSafeArea()
+            ProgressView("Loading messages...")
+                .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                .foregroundColor(.white)
+                .scaleEffect(1.5)
+        }
+    }
+    
+    private func scrollToLastMessage(using proxy: ScrollViewProxy? = nil) {
+        guard let proxy = proxy, let lastMessage = viewModel.messages.last else { return }
+        withAnimation {
+            proxy.scrollTo(lastMessage.id, anchor: .bottom)
         }
     }
 }

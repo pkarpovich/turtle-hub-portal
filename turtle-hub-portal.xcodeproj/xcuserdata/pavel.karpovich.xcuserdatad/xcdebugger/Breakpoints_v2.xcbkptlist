@@ -3,4 +3,52 @@
    uuid = "C5E76A76-0628-4933-A49B-2CC29306C91A"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0EF4BC59-99F8-4E11-BF10-BDDC9A9FB7E3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "turtle-hub-portal-watch Watch App/WatchVoiceViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "handleError(_:_:additionalInfo:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0EF4BC59-99F8-4E11-BF10-BDDC9A9FB7E3 - 9459a9aed7dbeb18"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "turtle_hub_portal_watch_Watch_App.WatchVoiceViewModel.handleError(_: Swift.String, _: Swift.Optional&lt;Swift.Error&gt;, additionalInfo: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "turtle-hub-portal-watch Watch App.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pavel.karpovich/Projects/turtle-hub-portal/turtle-hub-portal-watch%20Watch%20App/WatchVoiceViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110">
+               </Location>
+               <Location
+                  uuid = "0EF4BC59-99F8-4E11-BF10-BDDC9A9FB7E3 - abede771a98a0777"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Error) -&gt; Swift.String in turtle_hub_portal_watch_Watch_App.WatchVoiceViewModel.handleError(_: Swift.String, _: Swift.Optional&lt;Swift.Error&gt;, additionalInfo: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "turtle-hub-portal-watch Watch App.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pavel.karpovich/Projects/turtle-hub-portal/turtle-hub-portal-watch%20Watch%20App/WatchVoiceViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

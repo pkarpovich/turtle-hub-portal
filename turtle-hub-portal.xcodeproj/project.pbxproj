@@ -7,10 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5263013B2D331A84004BB26C /* turtle-hub-portal-watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 52EF252C2D25C944001EF709 /* turtle-hub-portal-watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		526301422D340749004BB26C /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 526301412D340749004BB26C /* MarkdownUI */; };
 		52EF26352D2BD618001EF709 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 52EF26342D2BD618001EF709 /* MarkdownUI */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5263013C2D331A84004BB26C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52EF250E2D25C868001EF709 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52EF252B2D25C944001EF709;
+			remoteInfo = "turtle-hub-portal-watch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		5263013E2D331A85004BB26C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				5263013B2D331A84004BB26C /* turtle-hub-portal-watch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52EF25E72D2A8C99001EF709 /* Embed ExtensionKit Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,18 +82,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526301422D340749004BB26C /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5263013A2D331A84004BB26C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		52EF250D2D25C868001EF709 = {
 			isa = PBXGroup;
 			children = (
 				52EF253F2D25C9A8001EF709 /* shared */,
 				52EF252D2D25C944001EF709 /* turtle-hub-portal-watch Watch App */,
 				52EF25F32D2B0CCB001EF709 /* turtle-hub-portal */,
+				5263013A2D331A84004BB26C /* Frameworks */,
 				52EF25172D25C868001EF709 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,10 +151,12 @@
 				52EF25EE2D2B0CCB001EF709 /* Sources */,
 				52EF25EF2D2B0CCB001EF709 /* Frameworks */,
 				52EF25F02D2B0CCB001EF709 /* Resources */,
+				5263013E2D331A85004BB26C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5263013D2D331A84004BB26C /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				52EF253F2D25C9A8001EF709 /* shared */,
@@ -130,6 +164,7 @@
 			);
 			name = "turtle-hub-portal";
 			packageProductDependencies = (
+				526301412D340749004BB26C /* MarkdownUI */,
 			);
 			productName = "turtle-hub-portal";
 			productReference = 52EF25F22D2B0CCB001EF709 /* turtle-hub-portal.app */;
@@ -209,6 +244,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5263013D2D331A84004BB26C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52EF252B2D25C944001EF709 /* turtle-hub-portal-watch Watch App */;
+			targetProxy = 5263013C2D331A84004BB26C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		52EF25222D25C86A001EF709 /* Debug */ = {
@@ -342,15 +385,16 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "turtle-hub-portal-watch-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "turtle-hub-portal-watch";
+				INFOPLIST_KEY_CFBundleDisplayName = "Turtle Hub Portal";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Voice message recording";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "space.pkarpovich.turtle-hub-portal";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "space.pkarpovich.turtle-hub-portal.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -374,15 +418,16 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "turtle-hub-portal-watch-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "turtle-hub-portal-watch";
+				INFOPLIST_KEY_CFBundleDisplayName = "Turtle Hub Portal";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Voice message recording";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "space.pkarpovich.turtle-hub-portal";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "space.pkarpovich.turtle-hub-portal.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -405,6 +450,7 @@
 				DEVELOPMENT_TEAM = GGG699AY79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Turtle Hub Portal";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -414,8 +460,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "space.pkarpovich.turtle-hub-portal.watchkitapp.turtle-hub-portal";
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "space.pkarpovich.turtle-hub-portal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -434,6 +480,7 @@
 				DEVELOPMENT_TEAM = GGG699AY79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Turtle Hub Portal";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -443,8 +490,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "space.pkarpovich.turtle-hub-portal.watchkitapp.turtle-hub-portal";
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "space.pkarpovich.turtle-hub-portal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -496,6 +543,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		526301412D340749004BB26C /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52EF26332D2BD618001EF709 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
+		};
 		52EF26342D2BD618001EF709 /* MarkdownUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 52EF26332D2BD618001EF709 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
