@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5263013B2D331A84004BB26C /* turtle-hub-portal-watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 52EF252C2D25C944001EF709 /* turtle-hub-portal-watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		526301422D340749004BB26C /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 526301412D340749004BB26C /* MarkdownUI */; };
+		526EC6A62D4ED19400E24A4B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526EC6A52D4ED19400E24A4B /* WidgetKit.framework */; };
+		526EC6A82D4ED19400E24A4B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526EC6A72D4ED19400E24A4B /* SwiftUI.framework */; };
+		526EC6B32D4ED19600E24A4B /* turtle-hub-portal-widgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 526EC6A42D4ED19400E24A4B /* turtle-hub-portal-widgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		52EF26352D2BD618001EF709 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 52EF26342D2BD618001EF709 /* MarkdownUI */; };
 /* End PBXBuildFile section */
 
@@ -19,6 +22,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 52EF252B2D25C944001EF709;
 			remoteInfo = "turtle-hub-portal-watch Watch App";
+		};
+		526EC6B12D4ED19600E24A4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52EF250E2D25C868001EF709 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 526EC6A32D4ED19400E24A4B;
+			remoteInfo = "turtle-hub-portal-widgetsExtension";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -34,6 +44,17 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		526EC6B42D4ED19600E24A4B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				526EC6B32D4ED19600E24A4B /* turtle-hub-portal-widgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52EF25E72D2A8C99001EF709 /* Embed ExtensionKit Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -47,11 +68,32 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		526EC6A42D4ED19400E24A4B /* turtle-hub-portal-widgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "turtle-hub-portal-widgetsExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		526EC6A52D4ED19400E24A4B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		526EC6A72D4ED19400E24A4B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		52EF252C2D25C944001EF709 /* turtle-hub-portal-watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "turtle-hub-portal-watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EF25F22D2B0CCB001EF709 /* turtle-hub-portal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "turtle-hub-portal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		526EC6B72D4ED19600E24A4B /* Exceptions for "turtle-hub-portal-widgets" folder in "turtle-hub-portal-widgetsExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 526EC6A32D4ED19400E24A4B /* turtle-hub-portal-widgetsExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		526EC6A92D4ED19400E24A4B /* turtle-hub-portal-widgets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				526EC6B72D4ED19600E24A4B /* Exceptions for "turtle-hub-portal-widgets" folder in "turtle-hub-portal-widgetsExtension" target */,
+			);
+			path = "turtle-hub-portal-widgets";
+			sourceTree = "<group>";
+		};
 		52EF252D2D25C944001EF709 /* turtle-hub-portal-watch Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "turtle-hub-portal-watch Watch App";
@@ -70,6 +112,15 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		526EC6A12D4ED19400E24A4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				526EC6A82D4ED19400E24A4B /* SwiftUI.framework in Frameworks */,
+				526EC6A62D4ED19400E24A4B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52EF25292D25C944001EF709 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -92,6 +143,8 @@
 		5263013A2D331A84004BB26C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				526EC6A52D4ED19400E24A4B /* WidgetKit.framework */,
+				526EC6A72D4ED19400E24A4B /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -102,6 +155,7 @@
 				52EF253F2D25C9A8001EF709 /* shared */,
 				52EF252D2D25C944001EF709 /* turtle-hub-portal-watch Watch App */,
 				52EF25F32D2B0CCB001EF709 /* turtle-hub-portal */,
+				526EC6A92D4ED19400E24A4B /* turtle-hub-portal-widgets */,
 				5263013A2D331A84004BB26C /* Frameworks */,
 				52EF25172D25C868001EF709 /* Products */,
 			);
@@ -112,6 +166,7 @@
 			children = (
 				52EF252C2D25C944001EF709 /* turtle-hub-portal-watch Watch App.app */,
 				52EF25F22D2B0CCB001EF709 /* turtle-hub-portal.app */,
+				526EC6A42D4ED19400E24A4B /* turtle-hub-portal-widgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +174,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		526EC6A32D4ED19400E24A4B /* turtle-hub-portal-widgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 526EC6B82D4ED19600E24A4B /* Build configuration list for PBXNativeTarget "turtle-hub-portal-widgetsExtension" */;
+			buildPhases = (
+				526EC6A02D4ED19400E24A4B /* Sources */,
+				526EC6A12D4ED19400E24A4B /* Frameworks */,
+				526EC6A22D4ED19400E24A4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				526EC6A92D4ED19400E24A4B /* turtle-hub-portal-widgets */,
+			);
+			name = "turtle-hub-portal-widgetsExtension";
+			packageProductDependencies = (
+			);
+			productName = "turtle-hub-portal-widgetsExtension";
+			productReference = 526EC6A42D4ED19400E24A4B /* turtle-hub-portal-widgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		52EF252B2D25C944001EF709 /* turtle-hub-portal-watch Watch App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52EF253A2D25C945001EF709 /* Build configuration list for PBXNativeTarget "turtle-hub-portal-watch Watch App" */;
@@ -127,10 +204,12 @@
 				52EF25292D25C944001EF709 /* Frameworks */,
 				52EF252A2D25C944001EF709 /* Resources */,
 				52EF25E72D2A8C99001EF709 /* Embed ExtensionKit Extensions */,
+				526EC6B42D4ED19600E24A4B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				526EC6B22D4ED19600E24A4B /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				52EF252D2D25C944001EF709 /* turtle-hub-portal-watch Watch App */,
@@ -180,6 +259,9 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					526EC6A32D4ED19400E24A4B = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					52EF252B2D25C944001EF709 = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -207,11 +289,19 @@
 			targets = (
 				52EF252B2D25C944001EF709 /* turtle-hub-portal-watch Watch App */,
 				52EF25F12D2B0CCB001EF709 /* turtle-hub-portal */,
+				526EC6A32D4ED19400E24A4B /* turtle-hub-portal-widgetsExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		526EC6A22D4ED19400E24A4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52EF252A2D25C944001EF709 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,6 +319,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		526EC6A02D4ED19400E24A4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52EF25282D25C944001EF709 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -251,9 +348,74 @@
 			target = 52EF252B2D25C944001EF709 /* turtle-hub-portal-watch Watch App */;
 			targetProxy = 5263013C2D331A84004BB26C /* PBXContainerItemProxy */;
 		};
+		526EC6B22D4ED19600E24A4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 526EC6A32D4ED19400E24A4B /* turtle-hub-portal-widgetsExtension */;
+			targetProxy = 526EC6B12D4ED19600E24A4B /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		526EC6B52D4ED19600E24A4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GGG699AY79;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "turtle-hub-portal-widgets/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "turtle-hub-portal-widgets";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "space.pkarpovich.turtle-hub-portal.watchkitapp.turtle-hub-portal-widgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		526EC6B62D4ED19600E24A4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GGG699AY79;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "turtle-hub-portal-widgets/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "turtle-hub-portal-widgets";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "space.pkarpovich.turtle-hub-portal.watchkitapp.turtle-hub-portal-widgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
 		52EF25222D25C86A001EF709 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -394,7 +556,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "space.pkarpovich.turtle-hub-portal.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -427,7 +589,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "space.pkarpovich.turtle-hub-portal.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -460,7 +622,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "space.pkarpovich.turtle-hub-portal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -490,7 +652,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "space.pkarpovich.turtle-hub-portal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -502,6 +664,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		526EC6B82D4ED19600E24A4B /* Build configuration list for PBXNativeTarget "turtle-hub-portal-widgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				526EC6B52D4ED19600E24A4B /* Debug */,
+				526EC6B62D4ED19600E24A4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		52EF25112D25C868001EF709 /* Build configuration list for PBXProject "turtle-hub-portal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

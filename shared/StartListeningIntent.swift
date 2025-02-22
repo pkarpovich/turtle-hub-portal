@@ -7,7 +7,16 @@
 import AppIntents
 
 struct StartListeningIntent: AppIntent {
-    static var title: LocalizedStringResource = "Start Listening"
+    static var title: LocalizedStringResource = "Start Voice Recording"
+    static var description = IntentDescription(
+        "Quickly start voice recording in Turtle Hub",
+        categoryName: "Voice Actions"
+    )
+    
+    static var parameterSummary: some ParameterSummary {
+        Summary("Start voice recording")
+    }
+    
     static var openAppWhenRun: Bool = true
     static var isDiscoverable: Bool = true
     

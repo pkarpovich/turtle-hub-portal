@@ -23,6 +23,20 @@ struct turtle_hub_portal_watch_Watch_AppApp: App {
                                 .environmentObject(viewModel)
                                 .navigationBarBackButtonHidden(true)
                         }
+                        
+                        switch route {
+                            case "messages":
+                                WatchMessagesView()
+                                    .environmentObject(viewModel)
+                            case "voice":
+                                WatchVoiceView()
+                                    .environmentObject(viewModel)
+                            default:
+                                EmptyView()
+                            }
+                    }
+                    .onOpenURL { url in
+                        handleIncomingURL(url)
                     }
             }
             .onAppear {
@@ -44,5 +58,10 @@ struct turtle_hub_portal_watch_Watch_AppApp: App {
     
     private func removeNotifications() {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name("StartListening"), object: nil)
+    }
+    
+    private func handleIncomingURL(_ url: URL) {
+        guard let host = url.host else { return }
+        navigationPath.append(host)
     }
 }
